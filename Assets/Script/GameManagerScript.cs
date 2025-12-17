@@ -18,9 +18,9 @@ public class GameManagerScript : MonoBehaviour
 {
     GameStatus gameStatus = GameStatus.Title;
 
-    [SerializeField] GameObject playerPrefab;
+    //[SerializeField] GameObject playerPrefab;
 
-    PlayerScript playerScript;
+    //PlayerScript playerScript;
 
     [SerializeField] GameObject summonButton1;
 
@@ -88,6 +88,8 @@ public class GameManagerScript : MonoBehaviour
         summonButtonScript1.SummonButton();
         summonButtonScript2 = summonButton2.GetComponent<SummonButtonScript>();
         summonButtonScript2.SummonButton();
+        //playerScript = playerPrefab.GetComponent<PlayerScript>();
+        //playerScript.MovePlayer();
     }
 
     void PlayGameOver()
