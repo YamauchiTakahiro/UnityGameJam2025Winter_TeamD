@@ -6,11 +6,9 @@ public class CharacterSummonScript : MonoBehaviour
 {
     [SerializeField] GameObject[] PlayerCharacter;
 
-    public bool isSummoned = false;
+    public bool[] isSummoned;
 
     public float[] summonCount;
-
-    public int characterIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,14 +21,21 @@ public class CharacterSummonScript : MonoBehaviour
         
     }
 
-    IEnumerator SummonCharacter()
+    public IEnumerator SummonCharacter(int i)
     {
-        Instantiate(PlayerCharacter[characterIndex], transform.position, Quaternion.identity);
-
-        isSummoned = true;
-
-        yield return new WaitForSeconds(summonCount[characterIndex]);
-
-        isSummoned = false;         
+        if (i == 0)
+        {
+            Instantiate(PlayerCharacter[0], transform.position, Quaternion.identity);
+            isSummoned[0] = true;
+            yield return new WaitForSeconds(summonCount[0]);
+            isSummoned[0] = false;
+        }
+        else if(i == 1)
+        {
+            Instantiate(PlayerCharacter[1], transform.position, Quaternion.identity);
+            isSummoned[1] = true;
+            yield return new WaitForSeconds(summonCount[1]);
+            isSummoned[1] = false;
+        }
     }
 }

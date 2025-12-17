@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,13 +22,18 @@ public class GameManagerScript : MonoBehaviour
 
     PlayerScript playerScript;
 
-    [SerializeField] GameObject summonButton;
+    [SerializeField] GameObject summonButton1;
 
-    SummonButtonScript summonButtonScript;
+    SummonButtonScript summonButtonScript1;
+
+    [SerializeField] GameObject summonButton2;
+
+    SummonButtonScript summonButtonScript2;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Application.targetFrameRate = 60;
+        //表示数を減らす
     }
 
     // Update is called once per frame
@@ -79,8 +84,10 @@ public class GameManagerScript : MonoBehaviour
 
     void PlayInGame()
     {
-        summonButtonScript = summonButton.GetComponent<SummonButtonScript>();
-        summonButtonScript.SummonButton();
+        summonButtonScript1 = summonButton1.GetComponent<SummonButtonScript>();
+        summonButtonScript1.SummonButton();
+        summonButtonScript2 = summonButton2.GetComponent<SummonButtonScript>();
+        summonButtonScript2.SummonButton();
     }
 
     void PlayGameOver()

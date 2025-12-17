@@ -30,10 +30,9 @@ public class SummonButtonScript : MonoBehaviour
         characterSummonScript = CharacterSummon.GetComponent<CharacterSummonScript>();
         summonButton.onClick.AddListener(() =>
         {
-            characterSummonScript.characterIndex = characterId;
-            if (characterSummonScript.isSummoned == false)
+            if (characterSummonScript.isSummoned[characterId] == false)
             {
-                characterSummonScript.StartCoroutine("SummonCharacter");
+                StartCoroutine(characterSummonScript.SummonCharacter(characterId));
             }
         });
     }
