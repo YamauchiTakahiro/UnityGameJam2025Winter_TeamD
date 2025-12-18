@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class TitleSceneManager : MonoBehaviour
     [Header("ゲームスタートボタン"), SerializeField]
     Button _gameStartButton;
 
+    [Header("設定ボタン"), SerializeField]
+    Button _optionButton;
+
     /// <summary>
     /// Awake
     /// </summary>
@@ -17,6 +21,9 @@ public class TitleSceneManager : MonoBehaviour
     {
         // ゲームスタートボタンのリスナー登録
         _gameStartButton.onClick.AddListener(OnClickGameStartButton);
+        // 設定ボタンのリスナー登録
+        _optionButton.onClick.AddListener(OnClickGameOptionButton);
+ 
     }
 
     /// <summary>
@@ -25,6 +32,15 @@ public class TitleSceneManager : MonoBehaviour
     private void OnClickGameStartButton()
     {
         // インゲームに遷移
-        SceneManager.LoadScene("InGame");
+        SceneManager.LoadScene("InGame");        
+    }
+
+    /// <summary>
+    /// 設定ボタン押下時
+    /// </summary>
+    private void OnClickGameOptionButton()
+    {
+        // オプションシーンに遷移
+        SceneManager.LoadScene("Option");
     }
 }
