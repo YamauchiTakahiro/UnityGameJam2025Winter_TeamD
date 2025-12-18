@@ -19,6 +19,11 @@ public class Wallet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (coin <= maxCoin)
+        {
+            //ŽžŠÔŒo‰ß‚ÅƒRƒCƒ“‚ª‘‚¦‚é
+            coin += Time.deltaTime;
+            coinText.text = coin.ToString() + "/" + maxCoin.ToString();
+        }
     }
 }
