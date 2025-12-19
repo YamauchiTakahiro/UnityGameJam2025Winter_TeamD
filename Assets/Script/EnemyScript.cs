@@ -15,6 +15,8 @@ public class EnemyScript : MonoBehaviour
     Vector3 pos;
     float direction;
     bool isMove = true;
+
+    //攻撃アニメーション用　Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class EnemyScript : MonoBehaviour
 
         }
         pos = new Vector3(direction, 0, 0);
+        //攻撃アニメーション２　anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,8 +54,12 @@ public class EnemyScript : MonoBehaviour
             //動きを止める
             isMove = false;
         }
-        //攻撃開始
-        
+        //攻撃開始　攻撃アニメーションの再生
+        // 攻撃アニメーション３　anim.SetBool("Attack", true);
+        //相手のHPを削る
+        HPScript hpScript = collision.gameObject.GetComponent<HPScript>();
+        StartCoroutine(AttackAction(hpScript));
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -63,6 +70,14 @@ public class EnemyScript : MonoBehaviour
         {
             //動きを再開する
             isMove = true;
+        }
+    }
+    IEnumerator AttackAction(HPScript hpScript)
+    {
+        while (hpScript.hp > 0)
+        {
+           yield return new WaitForSeconds(0.5f);
+           hpScript.Damage(1);
         }
     }
 }
