@@ -77,7 +77,11 @@ public class EnemyScript : MonoBehaviour
         while (hpScript.hp > 0)
         {
            yield return new WaitForSeconds(0.5f);
-           hpScript.Damage(1);
+            if(hpScript.hp > 0)
+            {
+                hpScript.Damage(1);
+            }
+            
         }
     }
 }
