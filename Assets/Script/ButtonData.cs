@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ButtonData : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    [SerializeField] SpriteRenderer player;
+    [SerializeField] GameObject playerPrefab;
     //‰Ÿ‚µ‚½‚Æ‚«‚ÉŒÄ‚Î‚ê‚éŠÖ”
     public void OnClick()
     {
@@ -13,7 +14,17 @@ public class ButtonData : MonoBehaviour
     }
     void PlayerSpawn()
     {
+
         float y = Random.Range(-1.6f, -1.1f);
-        Instantiate(player, new Vector3(7.0f, y, 0.0f), transform.rotation);
-    }
-}
+
+        GameObject obj = Instantiate(
+           playerPrefab,
+           new Vector3(7.0f, y, 0.0f),
+           Quaternion.identity
+        );
+
+        SpriteRenderer pl = obj.GetComponent<SpriteRenderer>();
+        pl.sortingOrder = (int)(-y * 10);
+    } 
+
+   }
