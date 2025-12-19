@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 183161531}
   - component: {fileID: 183161532}
   m_Layer: 5
-  m_Name: SoundSlider
+  m_Name: SeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,12 +298,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 183161529}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad8a2796d9398948b91ebcf81a23ae2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ca21a9e6570a864b941c1c4cef57064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   OptionManager: {fileID: 706370064}
-  SoundVolumeText: {fileID: 622253083}
-  SoundSlider: {fileID: 183161531}
+  SeVolumeText: {fileID: 622253083}
+  SeSlider: {fileID: 183161531}
 --- !u!1 &227616455
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477d89700a145584a9e4b2dd0a3552de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundVolumText: {fileID: 622253085}
 --- !u!114 &622253085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BgmVolumeScript: {fileID: 2043682560}
-  SoundVolumeScript: {fileID: 183161529}
+  SeVolumeScript: {fileID: 0}
 --- !u!1 &776753985
 GameObject:
   m_ObjectHideFlags: 0
