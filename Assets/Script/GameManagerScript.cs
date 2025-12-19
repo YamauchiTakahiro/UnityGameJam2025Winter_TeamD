@@ -16,6 +16,17 @@ enum GameStatus
 
 public class GameManagerScript : MonoBehaviour
 {
+    public static GameManagerScript instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+    //ゲームが始まっているかどうか
+    public bool isGame = false;
     GameStatus gameStatus = GameStatus.Title;
 
     //[SerializeField] GameObject playerPrefab;
@@ -32,6 +43,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGame = true;
         Application.targetFrameRate = 60;
         //表示数を減らす
     }
@@ -84,10 +96,10 @@ public class GameManagerScript : MonoBehaviour
 
     void PlayInGame()
     {
-        summonButtonScript1 = summonButton1.GetComponent<SummonButtonScript>();
-        summonButtonScript1.SummonButton();
-        summonButtonScript2 = summonButton2.GetComponent<SummonButtonScript>();
-        summonButtonScript2.SummonButton();
+        //summonButtonScript1 = summonButton1.GetComponent<SummonButtonScript>();
+        //summonButtonScript1.SummonButton();
+        //summonButtonScript2 = summonButton2.GetComponent<SummonButtonScript>();
+        //summonButtonScript2.SummonButton();
         //playerScript = playerPrefab.GetComponent<PlayerScript>();
         //playerScript.MovePlayer();
     }
