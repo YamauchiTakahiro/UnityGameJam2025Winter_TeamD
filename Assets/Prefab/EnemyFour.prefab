@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8297024687092936517}
   - component: {fileID: 9047328148988127948}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyFour
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6cfd648b260b11444932c53df53411d7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.96591616, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -185,4 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7fc7acbccbdb74e8b710164a2718b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 3
+  hp: 9
