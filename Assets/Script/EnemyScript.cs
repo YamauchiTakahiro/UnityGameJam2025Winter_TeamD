@@ -53,12 +53,13 @@ public class EnemyScript : MonoBehaviour
         {
             //動きを止める
             isMove = false;
+            //攻撃開始　攻撃アニメーションの再生
+            // 攻撃アニメーション３　anim.SetBool("Attack", true);
+            //相手のHPを削る
+            HPScript hpScript = collision.gameObject.GetComponent<HPScript>();
+            StartCoroutine(AttackAction(hpScript));
         }
-        //攻撃開始　攻撃アニメーションの再生
-        // 攻撃アニメーション３　anim.SetBool("Attack", true);
-        //相手のHPを削る
-        HPScript hpScript = collision.gameObject.GetComponent<HPScript>();
-        StartCoroutine(AttackAction(hpScript));
+        
 
     }
 
@@ -83,5 +84,10 @@ public class EnemyScript : MonoBehaviour
             }
             
         }
+    }
+
+    public void DestroyEvent()
+    {
+        Destroy(gameObject);
     }
 }

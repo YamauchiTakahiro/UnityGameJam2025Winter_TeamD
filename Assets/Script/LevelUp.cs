@@ -66,7 +66,7 @@ public class LevelUp : MonoBehaviour
             level++;
 
             //金額のスピードを上げる
-            wallet.coinSpeed += 10;
+            wallet.coinSpeed += 3;
 
             //テキストの表示を変更する
             levelText.text = "Level " + level.ToString();
