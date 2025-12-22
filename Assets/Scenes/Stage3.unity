@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4035290471808748803, guid: 8e0d69e33305fb74cbbf43d7b326d134, type: 3}
-  cost: 10000
+  cost: 5000
   costText: {fileID: 1069170320}
   playerPrefab: {fileID: 7372315923490721115, guid: 8e0d69e33305fb74cbbf43d7b326d134, type: 3}
   gaugeBar: {fileID: 985426034}
@@ -3785,7 +3785,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "10,000\u5186"
+  m_Text: "5,000\u5186"
 --- !u!222 &1069170321
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class Wallet : MonoBehaviour
     [SerializeField] int[] maxCoin; // 最大所持金額
     public float coin  = 0; // 所持金額
 
-   public int coinSpeed = 97; // コインの増える速度
+   public int coinSpeed = 7; // コインの増える速度
     // Start is called before the first frame update
     void Start()
     {
