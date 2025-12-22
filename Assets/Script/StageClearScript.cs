@@ -40,6 +40,9 @@ public class StageClearScript : MonoBehaviour
     public void StageClear()
     {
         // 現在のステージ番号を取得
-        gameManagerScript.SetRank(stageNumber);
+        if (gameManagerScript.GetRank() < stageNumber)
+        {
+            gameManagerScript.SetRank(stageNumber);
+        }
     }
 }

@@ -27,7 +27,7 @@ public class SoundManagerScript : MonoBehaviour
     void Update()
     {
         SetBGMVolume();
-        SetSEVolume();
+       // SetSEVolume();
     }
 
     private void SetBGMVolume()

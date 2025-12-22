@@ -650,7 +650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 2145367613}
-  stageNumber: 0
+  stageNumber: 1
 --- !u!4 &198714510
 Transform:
   m_ObjectHideFlags: 0
@@ -5491,6 +5491,10 @@ PrefabInstance:
     - target: {fileID: 1212919247784611036, guid: 6de54c44da1a9734c9122b5e72fbd6e1, type: 3}
       propertyPath: m_Name
       value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983673801812785518, guid: 6de54c44da1a9734c9122b5e72fbd6e1, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6026958687797054586, guid: 6de54c44da1a9734c9122b5e72fbd6e1, type: 3}
       propertyPath: m_LocalPosition.x

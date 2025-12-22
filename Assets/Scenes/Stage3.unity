@@ -1209,6 +1209,10 @@ PrefabInstance:
       value: SoundManager
       objectReference: {fileID: 0}
     - target: {fileID: 3983673801812785518, guid: 6de54c44da1a9734c9122b5e72fbd6e1, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983673801812785518, guid: 6de54c44da1a9734c9122b5e72fbd6e1, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: a12562a356452d54fafcee3b07adf5e6, type: 3}
@@ -2172,7 +2176,7 @@ MonoBehaviour:
   coinLevel: 0
   maxCoin: 20030000dc050000fc080000ac0d0000f8110000701700004c1d000010270000
   coin: 0
-  coinSpeed: 14
+  coinSpeed: 20
 --- !u!1 &584604575
 GameObject:
   m_ObjectHideFlags: 0
@@ -6669,7 +6673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 2145367613}
-  stageNumber: 2
+  stageNumber: 3
 --- !u!4 &2089789320
 Transform:
   m_ObjectHideFlags: 0
@@ -6809,8 +6813,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCasle: {fileID: 1980103293}
-  EnemyCasle: {fileID: 0}
-  MainCamera: {fileID: 745771117}
+  EnemyCasle: {fileID: 745771117}
+  MainCamera: {fileID: 63318666}
   _receptionist: {fileID: 8719031549097580285, guid: b3e2a10d61b51aa428458de44619e885, type: 3}
   StageClear: {fileID: 2089789318}
   isGame: 0
