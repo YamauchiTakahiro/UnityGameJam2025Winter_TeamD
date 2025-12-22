@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RetrunButtonScript : MonoBehaviour
@@ -29,6 +30,6 @@ public class RetrunButtonScript : MonoBehaviour
     public void OnClickReturnButton()
     {
         // タイトルシーンに遷移
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Title");
     }
 }
