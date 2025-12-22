@@ -1371,6 +1371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f0f549d3562a46bb9ec13fecd883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSummon: {fileID: 1633616715}
+  characterId: 9
 --- !u!114 &530877661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1639,6 +1641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f0f549d3562a46bb9ec13fecd883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSummon: {fileID: 1633616715}
+  characterId: 5
 --- !u!114 &584604578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2055,7 +2059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 6743738500263640206, guid: c7af228ebe9945f40a864772fa2f2293, type: 3}
+  - {fileID: 6743738500263640206, guid: 6b4b3ae10ba55cd459d0709237e81026, type: 3}
   - {fileID: 6743738500263640206, guid: 727461f36c3728a42acd968f89150f8b, type: 3}
   - {fileID: 6743738500263640206, guid: a0e106aaf9fe7674fb027b3730ff7255, type: 3}
   - {fileID: 6743738500263640206, guid: 09f6eb7b9496e434d960f44f2f9dcd61, type: 3}
@@ -3402,6 +3406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f0f549d3562a46bb9ec13fecd883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSummon: {fileID: 1633616715}
+  characterId: 6
 --- !u!114 &1442408232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3897,6 +3903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f0f549d3562a46bb9ec13fecd883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSummon: {fileID: 1633616715}
+  characterId: 7
 --- !u!114 &1622496168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3988,7 +3996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1633616717}
-  - component: {fileID: 1633616718}
+  - component: {fileID: 1633616716}
   m_Layer: 0
   m_Name: CharacterSummon
   m_TagString: Untagged
@@ -3996,6 +4004,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1633616716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633616715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1bbc87c737ebf94f9d9c9fe73ec88a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCharacter:
+  - {fileID: 7372315923490721115, guid: a9bee22178f4c3b4498d6010f813afa5, type: 3}
+  - {fileID: 6362922666187018003, guid: 8491b587af2ea154595274db49437cd1, type: 3}
+  isSummoned: 0000
+  summonCount:
+  - 2
+  - 4
 --- !u!4 &1633616717
 Transform:
   m_ObjectHideFlags: 0
@@ -4011,26 +4038,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1633616718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633616715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c166975fdb84ec4f857fe5595d2b8ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCharacter:
-  - {fileID: 7372315923490721115, guid: cd9bbed86cf016a4686f3c74702955f2, type: 3}
-  - {fileID: 7372315923490721115, guid: 9f581cae53f60e94a94209c0de455348, type: 3}
-  - {fileID: 7372315923490721115, guid: 444dc9c7168ecdb46bb741c1156758f5, type: 3}
-  - {fileID: 7372315923490721115, guid: 5208b9bffaf4adc41ba2d3ff6440ab79, type: 3}
-  - {fileID: 7372315923490721115, guid: b4bd3ee8eaac1ce40ab8fd7a0b97eec5, type: 3}
-  isSummoned: 
-  summonCount: []
 --- !u!1 &1648837670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4559,6 +4566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3f0f549d3562a46bb9ec13fecd883b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSummon: {fileID: 1633616715}
+  characterId: 8
 --- !u!114 &1824074992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,8 +5475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGame: 0
-  summonButton1: {fileID: 299197292}
-  summonButton2: {fileID: 529398718}
+  summonButton1: {fileID: 0}
+  summonButton2: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
