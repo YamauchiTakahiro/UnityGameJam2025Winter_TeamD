@@ -1,119 +1,125 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 enum GameStatus
 {
     None,
     Init,
     Title,
-    WordSelect,
-    InGame,
+    WorldMap,
+    Stage1,
+    Stage2,
+    Stage3,
+    Option,
     GameOver,
     GameClear,
     Result
 }
 
+
 public class GameManagerScript : MonoBehaviour
 {
+    [SerializeField] GameObject PlayerCasle;
+    [SerializeField] GameObject EnemyCasle;
+    [SerializeField] GameObject MainCamera;
+
+    [SerializeField] ReceptionistScript _receptionist; // Inspector に ReceptionistScript をアサイン
+    [SerializeField] GameObject StageClear;
+    StageClearScript stageClearScript;
+
+
+    HPScript PlayerCasleHP;
+    HPScript EnemyCasleHP;
+
+    // 一度だけ呼ぶためのフラグ
+    private bool _enemyDeathHandled = false;
+    private bool _playerDeathHandled = false;
     public static GameManagerScript instance;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
+
+        stageClearScript = StageClear.GetComponent<StageClearScript>();
+
+        if (PlayerCasle != null)
+        {
+            PlayerCasleHP = PlayerCasle.GetComponent<HPScript>();
+            if (PlayerCasleHP == null)
+                Debug.LogWarning("GameManagerScript: PlayerCasle に HPScript が見つかりません。");
+        }
+        else
+        {
+            Debug.LogWarning("GameManagerScript: PlayerCasle が Inspector にセットされていません。");
+        }
+
+        if (EnemyCasle != null)
+        {
+            EnemyCasleHP = EnemyCasle.GetComponent<HPScript>();
+            if (EnemyCasleHP == null)
+                Debug.LogWarning("GameManagerScript: EnemyCasle に HPScript が見つかりません。");
+        }
+        else
+        {
+            Debug.LogWarning("GameManagerScript: EnemyCasle が Inspector にセットされていません。");
+        }
+
+        if (_receptionist == null)
+        {
+            Debug.LogWarning("GameManagerScript: _receptionist が Inspector にセットされていません。");
+        }
     }
+
+
     //ゲームが始まっているかどうか
     public bool isGame = false;
     GameStatus gameStatus = GameStatus.Title;
 
-    //[SerializeField] GameObject playerPrefab;
 
-    //PlayerScript playerScript;
-
-    [SerializeField] GameObject summonButton1;
-
-    SummonButtonScript summonButtonScript1;
-
-    [SerializeField] GameObject summonButton2;
-
-    SummonButtonScript summonButtonScript2;
-    // Start is called before the first frame update
     void Start()
     {
         isGame = true;
         Application.targetFrameRate = 60;
-        //表示数を減らす
     }
 
-    // Update is called once per frame
     void Update()
     {
-        PlayerGameStatus();
-    }
-
-    void PlayerGameStatus()
-    {
-        switch (gameStatus)
+        // 敵城のHPが0以下になったら一度だけ受付嬢のセリフを表示
+        if (!_enemyDeathHandled && EnemyCasleHP != null && EnemyCasleHP.hp <= 0)
         {
-            case GameStatus.Title:
-                PlayTitle();
-                break;
-            case GameStatus.WordSelect:
-                PlayWordSelect();
-                break;
-            case GameStatus.InGame:
-                PlayInGame();
-                break;
-            case GameStatus.GameOver:
-                PlayGameOver();
-                break;
-            case GameStatus.GameClear:
-                PlayGameClear();
-                break;
-            case GameStatus.Result:
-                PlayerResult();
-                break;
+            _enemyDeathHandled = true;
+            if (_receptionist != null)
+            {
+                _receptionist.ShowRandomLine();
+                stageClearScript.StageClear();
+                SceneManager.LoadScene("WorldMap");
+            }
         }
 
+        // プレイヤー城が破壊されたとき敗北時の受付嬢のセリフを表示
+        if (!_playerDeathHandled && PlayerCasleHP != null && PlayerCasleHP.hp <= 0)
+        {
+            _playerDeathHandled = true;
+            if (_receptionist != null) {
+                _receptionist.ShowDefeatLine();
+                SceneManager.LoadScene("WorldMap");
+            }
+        }
     }
 
-    void SetGameStatus(GameStatus nextGameStatus)
+    public int GetRank()
     {
-        gameStatus = nextGameStatus;
+        return PlayerPrefs.GetInt("Rank", 0);
     }
 
-    void PlayTitle()
+    public void SetRank(int rank)
     {
-        SetGameStatus(GameStatus.InGame);
-    }
-
-    void PlayWordSelect()
-    {
-    }
-
-    void PlayInGame()
-    {
-        //summonButtonScript1 = summonButton1.GetComponent<SummonButtonScript>();
-        //summonButtonScript1.SummonButton();
-        //summonButtonScript2 = summonButton2.GetComponent<SummonButtonScript>();
-        //summonButtonScript2.SummonButton();
-        //playerScript = playerPrefab.GetComponent<PlayerScript>();
-        //playerScript.MovePlayer();
-    }
-
-    void PlayGameOver()
-    {
-    }
-
-    void PlayGameClear()
-    {
-    }
-
-    void PlayerResult()
-    {
-
+         PlayerPrefs.SetInt("Rank", rank);
     }
 }

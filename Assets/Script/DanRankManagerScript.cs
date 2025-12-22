@@ -13,11 +13,23 @@ public class DanRankManagerScript : MonoBehaviour
     [Header("è„ãâÉ{É^Éì"), SerializeField]
     Button _advancedButton;
 
+    [SerializeField] GameObject GameManager;
+    GameManagerScript gameManagerScript;
+
+
+
     private void Awake()
     {
+        gameManagerScript = GameManager.GetComponent<GameManagerScript>();
         _beginnerButton.onClick.AddListener(OnClickBeginnerButton);
-        _intermediateButton.onClick.AddListener(OnClickIntermediateButton);
-        _advancedButton.onClick.AddListener(OnClickAdvancedButton);
+        if(gameManagerScript.GetRank()>=1)
+        {
+            _intermediateButton.onClick.AddListener(OnClickIntermediateButton);
+        }
+        if (gameManagerScript.GetRank() >= 2)
+        {
+            _advancedButton.onClick.AddListener(OnClickAdvancedButton);
+        }
     }
 
 

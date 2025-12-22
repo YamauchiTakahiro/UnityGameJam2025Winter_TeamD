@@ -21,7 +21,15 @@ public class OptionManagerScript : MonoBehaviour
     {
         
     }
-
+    // BGM音量設定
+    //使い方
+    // オプション画面でBGM音量を設定する際に、SetBGMVolumeメソッドを呼び出して音量を保存します。
+    // ゲーム起動時やオプション画面表示時に、GetBGMVolumeメソッドを呼び出して保存された音量を取得します。
+    // 例:
+    // optionManagerScript.SetBGMVolume(0.8f); // BGM音量を0.8に設定
+    // float currentBGMVolume = optionManagerScript.GetBGMVolume(); // 保存されたBGM音量を取得
+    // PlayerPrefsを使用して音量設定を保存するため、ゲームを再起動しても設定が保持されます。
+    // BGM音量は0.0から1.0の範囲で設定してください。
     public void SetBGMVolume(float volume)
     {
         PlayerPrefs.SetFloat("BGMVolume", volume);
